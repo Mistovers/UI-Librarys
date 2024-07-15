@@ -1,11 +1,6 @@
 -- 🤫 🧏‍♂️
 repeat wait() until game:IsLoaded()
 
-if FluentLibExecuted == true then
-    return
-end
-getgenv().FluentLibExecuted = true
-
 local games = {
     [142823291] = true,
     [335132309] = true,
@@ -394,4 +389,6 @@ elseif Config.Script == "R3TH PRIV" then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/R3TH-PRIV/R3THPRIV/main/loader.lua'))()
 elseif Config.Script == "AshbornnHub" then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Ashborrn/AshborrnHub/main/Solara.lua",true))()
+elseif Config.Script == "Nexus" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/s-o-a-b/nexus/main/loadstring"))()
 end
