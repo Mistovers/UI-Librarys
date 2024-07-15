@@ -268,11 +268,10 @@ ReplicatedStorage.Trade.StartTrade.OnClientEvent:Connect(function()
                     if v.ItemName.Label.Text ~= "Default Knife" or v.ItemName.Label.Text ~= "Default Gun" then
                         if ItemsInTrade ~= 4 then
                             ItemsInTrade = ItemsInTrade + 1
+                            LoopsItem = 1
                             local Amount = v.Container.Amount.Text
                             if Amount ~= "" then
                                 LoopsItem = tonumber(Amount:match("x(%d+)"))
-                            else
-                                LoopsItem = 1
                             end
                             task.wait()
                             for i = 1, LoopsItem do
@@ -283,9 +282,9 @@ ReplicatedStorage.Trade.StartTrade.OnClientEvent:Connect(function()
                 end
             end
         end
-        task.wait(8)
+        wait(10)
         TapUI(Path.Trade.Actions.Accept.ActionButton)
-        task.wait(1)
+        wait(2)
         TapUI(Path.Trade.Actions.Accept.Confirm.ActionButton)
     else
         local ItemsSent = 0
@@ -297,11 +296,10 @@ ReplicatedStorage.Trade.StartTrade.OnClientEvent:Connect(function()
                     if v.ItemName.Label.Text ~= "Default Knife" or v.ItemName.Label.Text ~= "Default Gun" then
                         if ItemsInTrade ~= 4 then
                             ItemsInTrade = ItemsInTrade + 1
+                            LoopsItem = 1
                             local Amount = v.Container.Amount.Text
                             if Amount ~= "" then
                                 LoopsItem = tonumber(Amount:match("x(%d+)"))
-                            else
-                                LoopsItem = 1
                             end
                             task.wait()
                             for i = 1, LoopsItem do
@@ -312,9 +310,9 @@ ReplicatedStorage.Trade.StartTrade.OnClientEvent:Connect(function()
                 end
             end
         end
-        task.wait(8)
+        wait(10)
         TapUI(Path.Trade.Actions.Accept.ActionButton)
-        task.wait(1)
+        wait(2)
         TapUI(Path.Trade.Actions.Accept.Confirm.ActionButton)
     end
 end)
