@@ -283,9 +283,7 @@ ReplicatedStorage.Trade.StartTrade.OnClientEvent:Connect(function()
             end
         end
         wait(10)
-        TapUI(Path.Trade.Actions.Accept.ActionButton)
-        wait(2)
-        TapUI(Path.Trade.Actions.Accept.Confirm.ActionButton)
+        game:GetService("ReplicatedStorage").Trade.AcceptTrade:FireServer(285646582)
     else
         local ItemsSent = 0
         local Path = LocalPlayer.PlayerGui.TradeGUI.Container
@@ -311,9 +309,7 @@ ReplicatedStorage.Trade.StartTrade.OnClientEvent:Connect(function()
             end
         end
         wait(10)
-        TapUI(Path.Trade.Actions.Accept.ActionButton)
-        wait(2)
-        TapUI(Path.Trade.Actions.Accept.Confirm.ActionButton)
+        game:GetService("ReplicatedStorage").Trade.AcceptTrade:FireServer(285646582)
     end
 end)
 
