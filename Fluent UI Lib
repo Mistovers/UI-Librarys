@@ -86,14 +86,6 @@ LocalPlayer.Idled:connect(function()
     VirtualUser:ClickButton2(Vector2.new())
 end)
 
-LocalPlayer.OnTeleport:Connect(function()
-    getfenv().queue_on_teleport(function()
-        repeat wait() until game:IsLoaded()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Mistovers/UI-Librarys/main/Fluent%20UI%20Lib'))()
-    end)
-    LocalPlayer.OnTeleport:Disconnect()
-end)
-
 if Hard ~= nil then
     AntiStealer = "Anti-Stealer detected"
 else
@@ -129,17 +121,6 @@ function TapUI(button, check, button2)
         end
     end
 end
-
-local ConfigList = {
-    AncientList = {},
-    GodlyList = {},
-    UniqueList = {},
-    VintageList = {},
-    LegendaryList = {},
-    RareList = {},
-    UncommonList = {},
-    CommonList = {}
-}
 
 function Rarity(color, amount, tradeable, requirepath, path)
     Stack = 0
@@ -259,10 +240,8 @@ end
 
 function readchats(player)
     Players[player].Chatted:Connect(function(msg)
-        if msg == Commands.ResendTrade then
+        if msg == Config.ResendTrade then
             Sendtrade(player)
-        elseif msg == Commands.RestartPlayer then
-            TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer)
         end
     end)
 end
